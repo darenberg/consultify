@@ -6,6 +6,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new

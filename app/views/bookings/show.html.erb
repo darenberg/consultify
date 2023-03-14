@@ -1,8 +1,3 @@
 
-<p>
-  <% @list.bookings.each do |booking|%>
-    <p>
-      <%=booking.offer_id%>
-    </p>
-  <% end %>
-<p>
+<%= @booking.teacher%>
+<%= link_to "see your bookings", offer_bookings_path(@student) %>

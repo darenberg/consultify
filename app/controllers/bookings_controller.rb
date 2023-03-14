@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:update, :destroy]
 
+  def index
+    @offer = Offer.find(params[:offer_id])
+    @bookings = @offer.bookings
+  end
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -9,10 +14,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @offer = Offer.find(params[:offer_id])
     @booking.offer = @offer
+    @booking.student = current_user
+
     if @booking.save
-      redirect_to offer_booking_path
+      redirect_to offer_booking_path(@offer, @booking)
     else
-      render @offer, status: :unprocessable_entity
+      render "offers/show", status: :unprocessable_entity
     end
   end
 
@@ -33,6 +40,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:intitial_time, :end_time, :status, :offer_id, :student_id)
+    params.require(:booking).permit(:start_time, :end_time, :status, :offer_id, :student_id)
   end
 end
