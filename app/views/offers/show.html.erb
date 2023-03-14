@@ -2,8 +2,15 @@
 <h3><%= @offer.description %></h3>
 <h3><%= @offer.category %></h3>
 <h3><%= @offer.qualifications %></h3>
-<%= link_to "Delete",
+
+
+
+<% if current_user.teacher? %>
+  <%= link_to "Delete",
   offer_path(@offer),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to "edit form", edit_offer_path%>
+<% end %>
+<% if current_user.teacher? %>
+  <%=  link_to "Edit this offer", edit_offer_path(@offer) %>
+<% end %>
 <%= link_to "return to offers ", offers_path%>

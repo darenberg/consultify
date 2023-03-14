@@ -3,4 +3,6 @@
   <%=  link_to offer.title, offer_path(offer.id)  %>
 
 <%end%>
-<%= link_to "create a new offer", new_offer_path %>
+<% if current_user.teacher? %>
+<%=  link_to "create a new offer", new_offer_path %>
+<%end%>
