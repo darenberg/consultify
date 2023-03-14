@@ -7,3 +7,4 @@
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <%= link_to "edit form", edit_offer_path%>
 <%= link_to "return to offers ", offers_path%>
+<%= link_to "see your bookings", offer_booking_path(@offer.id)  %>
