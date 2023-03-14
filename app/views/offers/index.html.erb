@@ -1,6 +1,78 @@
- <h1>Your offers</h1>
-<% @offers.each do |offer| %>
-  <%=  link_to offer.title, offer_path(offer.id)  %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class ="container d-flex align-items-center justify-content-between py-2">
+    <a class="navbar-brand" href="#">Consultify</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Requests
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Sheduled consultations</a></li>
+            <li><a class="dropdown-item" href="#">Pending consultations</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Manage Requests</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
-<%end%>
-<%= link_to "create a new offer", new_offer_path %>
+<nav class="bg-dark navbar-dark">
+  <div class="container">
+    <a href="" class="navbar-brand"><i class="fas fa-tree mr-2"></i>Consultify</a>
+  </div>
+</nav>
+<section id="header" class="jumbotron text-center">
+  <h1 class="display-3">Consultify</h1>
+  <p class="lead">Get a consultation on anything you need!.</p>
+  <a href="" class="btn btn-primary">Home Maintenence</a>
+  <a href="" class="btn btn-primary">Marketing</a>
+  <a href="" class="btn btn-primary">Gardening</a>
+  <a href="" class="btn btn-primary">School</a>
+  <a href="" class="btn btn-primary">Dating</a>
+</section>
+
+<section id="gallery">
+  <div class="container pt-5">
+    <div class="row">
+      <% @offers.each do |offer| %>
+        <div class="col-lg-4 mb-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"><%= offer.title %></h5>
+              <p class="card-text"><%= offer.description %></p>
+              <a href="" class="btn btn-outline-success btn-sm">Book offer</a>
+              <a href="" class="btn btn-outline-primary btn-sm">Rating 5.0</a>
+              <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+            </div>
+          </div>
+        </div>
+      <% end %>   
+    </div>
+  </div>
+</section>
+
+<div class = "card py-2">  
+  <h1>offers</h1>
+  <% @offers.each do |offer| %>
+    <%=  link_to offer.title, offer_path(offer.id)  %>
+
+  <%end%>
+  <%= link_to "create a new offer", new_offer_path %>
+</div>
