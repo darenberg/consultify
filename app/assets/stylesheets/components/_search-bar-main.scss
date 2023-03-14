@@ -1,0 +1,27 @@
+.search-bar-main{
+  width: 100%;
+  height: 100px;
+  border: 0px;
+  display: flex;
+  margin-top: 30px;
+}
+
+.search-bar-main input{
+  width: 550px;
+  border: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 40px;
+}
+
+.search-bar-main a{
+  background-color: rgb(75, 179, 75);
+  height: 40px;
+  text-decoration: none;
+  width: 100px;
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+  padding-top: 8px;
+}

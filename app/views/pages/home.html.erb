@@ -1,3 +1,59 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p><%= link_to "check out your offers", offers_path  %></p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <p>consultify</p>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">be a consultant</a>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div class="banner justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+    <div class="container">
+      <h1>Get the help you need!</h1>
+      <p>Make your life easier by getting advise from the right person.</p>
+      <a class="btn btn-flat" href="#">Start looking!</a>
+    </div>
+    <%# <div class="main-search-input-wrap">
+      <div class="main-search-input fl-wrap">
+        <div class="main-search-input-item">
+          <input type="text"  value="" placeholder="Look for your next consultation...">
+        </div>
+        <button class="main-search-button">Search</button>
+      </div>
+    </div> %>
+    <div class="card d-flex container">
+      <div>
+        <h2>Consultations on anything!</h2>
+        <p>Sign up</p>
+        <p>Find consultant</p>
+        <p>Get advise!</p>
+        <%= link_to "Check out the available offers from our consultants!", offers_path, class: "btn btn-success btn-rounded col-6" %>
+      </div>
+    </div>
+    <div class="search-bar-main container">
+      <div class="search-bar-item">
+        <input type="text" name="search" id="search" placeholder="Look for your next consultation">
+      </div>
+      <a class="search-bar-btn" href="#">Search</a>
+    </div>
+</div>

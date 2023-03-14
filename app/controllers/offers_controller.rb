@@ -3,6 +3,7 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+
   end
 
   def show
@@ -11,12 +12,14 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+
   end
 
   def create
     @offer = Offer.new(offer_params)
 
     @offer.user = current_user
+
     if @offer.save!
       redirect_to @offer
     else
@@ -25,15 +28,18 @@ class OffersController < ApplicationController
   end
 
   def edit
+
   end
 
 
   def update
+
     @offer.update(offer_params)
     redirect_to offer_path(@offer), notice: 'offer was successfully updated.'
   end
 
   def destroy
+
     @offer.destroy
     redirect_to offers_path, notice: 'offer was successfully destroyed.'
   end
