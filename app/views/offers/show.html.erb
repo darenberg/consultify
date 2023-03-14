@@ -1,0 +1,9 @@
+<h2><%= @offer.title %></h2>
+<h3><%= @offer.description %></h3>
+<h3><%= @offer.category %></h3>
+<h3><%= @offer.qualifications %></h3>
+<%= link_to "Delete",
+  offer_path(@offer),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "edit form", edit_offer_path%>
+<%= link_to "return to offers ", offers_path%>
