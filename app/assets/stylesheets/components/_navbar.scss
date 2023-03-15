@@ -8,6 +8,19 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+
+.navbar .nav-item{
+  text-decoration: none !important;
+  color: rgb(45, 45, 45) !important;
+  font-size: 20px;
+  padding-left: 35px;
+}
+
+.navbar p {
+font-size: 25px;
+font-weight: bolder;
+}
+
+.navbar .nav-item:hover{
+  color: white !important;
 }

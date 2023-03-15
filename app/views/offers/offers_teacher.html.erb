@@ -1,0 +1,12 @@
+<h1>My Offers</h1>
+
+<% @offers.each do |offer| %>
+  <% if offer.user_id == current_user.id  %>
+    <h3><%= offer.title.capitalize %></h3>
+    <p><%= offer.description.capitalize %></p>
+  <% end %>
+<%end%>
+
+<%=  link_to "New Offers", new_offer_path %>
+<%= link_to "HOME", root_path%>
+<%= link_to "All Offers ", offers_path%>
