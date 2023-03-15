@@ -2,8 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:update, :destroy]
 
   def index
-    @offer = Offer.find(params[:offer_id])
-    @bookings = @offer.bookings
+    @bookings = Booking.all
   end
 
   def show
@@ -30,7 +29,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to offer_booking_path, status: :see_other
+    redirect_to bookings_path, status: :see_other
   end
 
   private
