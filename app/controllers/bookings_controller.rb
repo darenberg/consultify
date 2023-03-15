@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to offer_booking_path, status: :see_other
+    redirect_to offers_path, status: :see_other
   end
 
   private

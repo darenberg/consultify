@@ -4,7 +4,7 @@
 <%= @booking.end_time%>
 
 <p><%= link_to "All Bookings", offer_bookings_path %></p>
-<p><%= link_to "Delete Booking", booking_path%></p>
+<p><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}%></p>
 
 <p><%= link_to "HOME", root_path%></p>
 <p><%= link_to "All Offers ", offers_path%></p>
