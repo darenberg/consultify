@@ -1,7 +1,7 @@
-<h2><%= @offer.title %></h2>
-<h3><%= @offer.description %></h3>
-<h3><%= @offer.category %></h3>
-<h3><%= @offer.qualifications %></h3>
+<h2><%= @offer.title.capitalize %></h2>
+<h3><%= @offer.description.capitalize %></h3>
+<h3><%= @offer.category.capitalize %></h3>
+<h3><%= @offer.qualifications.capitalize %></h3>
 
 
 
@@ -13,4 +13,13 @@
 <% if current_user.teacher? %>
   <%=  link_to "Edit this offer", edit_offer_path(@offer) %>
 <% end %>
-<%= link_to "return to offers ", offers_path%>
+
+<%= simple_form_for [@offer, @booking] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.submit %>
+<% end %>
+<p><%= link_to "My Offers", teacher_offers_path%></p>
+<p><%= link_to "Return to  All Offers ", offers_path%></p>
+<p><%= link_to "See your Bookings", offer_bookings_path(@offer) %></p>
+<p><%= link_to "HOME", root_path%></p>

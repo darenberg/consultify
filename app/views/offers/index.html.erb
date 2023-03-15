@@ -1,8 +1,16 @@
- <h1>Your offers</h1>
+ <h1>All Offers</h1>
 <% @offers.each do |offer| %>
-  <%=  link_to offer.title, offer_path(offer.id)  %>
+  <h3><%=  link_to offer.title.capitalize, offer_path(offer.id)  %></h3>
+<%end%>
 
-<%end%>
 <% if current_user.teacher? %>
-<%=  link_to "create a new offer", new_offer_path %>
+  <p><%=  link_to "Create a New Offer", new_offer_path %></p>
 <%end%>
+
+<p><%=  link_to "My Offers", teacher_offers_path %></p>
+
+<% if current_user.teacher? %>
+  <p><%= link_to "My Offers", teacher_offers_path%></p>
+<% end %>
+
+<%= link_to "HOME", root_path%>
