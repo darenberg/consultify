@@ -1,4 +1,4 @@
-<h1>ALL BOOKINGS</h1>
+<h1>ALL MY BOOKINGS</h1>
 
 <% current_user.teacher_bookings.each do |booking| %>
   <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
