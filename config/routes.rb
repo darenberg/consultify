@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  get '/teacher_offers', to: 'offers#offers_teacher'
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resource :dashboard, only: :show
 
   resources :offers do
-    resources :bookings, only: [:show, :create, :update, :index]
+    resources :bookings, only: [:create, :update]
   end
 
   resources :bookings, only: :destroy do
