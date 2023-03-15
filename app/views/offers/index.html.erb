@@ -7,7 +7,6 @@
   <p><%=  link_to "Create a New Offer", new_offer_path %></p>
 <%end%>
 
-<p><%=  link_to "My Offers", teacher_offers_path %></p>
 
 <% if current_user.teacher? %>
   <p><%= link_to "My Offers", teacher_offers_path%></p>
