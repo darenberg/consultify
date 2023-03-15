@@ -3,13 +3,13 @@
 
 
 <% @bookings.each do |booking| %>
-  <li><%=  booking.start_time  %></li>
-  <li><%=  booking.end_time  %></li>
-  <li><%=  booking.offer.title  %></li>
-  <li><%=  booking.offer.description  %></li>
+  <%=  booking.start_time  %>
+  <%=  booking.end_time  %>
+  <h3><%=  booking.offer.title  %></h3>
+  <p><%=  booking.offer.description  %></p>
 <% end %>
 </ul>
 
 
 <%= link_to "HOME", root_path%>
-<%= link_to "all offers ", offers_path%>
+<%= link_to "All Offers ", offers_path%>
