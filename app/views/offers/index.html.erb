@@ -1,6 +1,6 @@
  <h1>All Offers</h1>
 <% @offers.each do |offer| %>
-  <h3><%=  link_to offer.title, offer_path(offer.id)  %></h3>
+  <h3><%=  link_to offer.title.capitalize, offer_path(offer.id)  %></h3>
 <%end%>
 
 <% if current_user.teacher? %>
