@@ -7,7 +7,11 @@ class OffersController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+  end
 
+  def offers_teacher
+    @offers = Offer.all
   end
 
   def new
