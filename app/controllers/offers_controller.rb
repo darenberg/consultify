@@ -10,6 +10,10 @@ class OffersController < ApplicationController
     @booking = Booking.new
   end
 
+  def offers_teacher
+    @offers = Offer.all
+  end
+
   def new
     @offer = Offer.new
 
