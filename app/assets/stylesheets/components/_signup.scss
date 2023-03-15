@@ -1,0 +1,33 @@
+.signup {
+  height: 800px;
+  background-color: rgb(242, 242, 242);
+  background-image: linear-gradient(157deg, #e8e8e8 0%, rgb(75, 179, 75));
+}
+
+.signup .box {
+  background-color: #21D4FD;
+  background-image: linear-gradient(0deg, #dbdbdb 0%, rgb(75, 179, 75));
+  border-radius: 10px;
+  padding: 40px;
+  opacity: 0.9;
+}
+
+.signup .form-actions {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: rgb(75, 179, 75);
+
+}
+.signup .form-actions:hover {
+    color: #fff;
+    background-color: rgb(37, 90, 37);
+  }
