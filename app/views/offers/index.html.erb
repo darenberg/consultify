@@ -33,6 +33,7 @@
   </div>
 </nav>
 
+<<<<<<< HEAD
 
 <nav class="bg-dark navbar-dark">
   <div class="container">
@@ -43,6 +44,11 @@
   <h1 class="display-3">Consultify</h1>
   <p class="lead">Get a consultation on anything you need!.</p>
 </section>
+=======
+<% if current_user.teacher? %>
+  <p><%= link_to "My Offers", teacher_offers_path%></p>
+<% end %>
+>>>>>>> fc62435c5f9ed2d44eafbe39c4cc0de9ae55596e
 
 <div class="container" > Your Saved Offers
  <div class="btn-group d-flex align-items-center justify-content-center pt-2">
