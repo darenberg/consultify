@@ -1,3 +1,4 @@
+
 <html>
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
   <div class ="container d-flex align-items-center justify-content-between py-2">
@@ -33,22 +34,25 @@
   </div>
 </nav>
 <body class="signup">
+
 <div class="container pt-5">
   <div class="row justify-content-center">
     <div class="box col-12 col-md-6 col-lg-4">
       <h2 class="text-center mb-5">Log in</h2>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+        <div class="form-inputs">
 
+          <%= f.input :email,
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "current-password" } %>
+
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+      <% end %>
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
