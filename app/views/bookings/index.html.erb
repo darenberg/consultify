@@ -1,14 +1,12 @@
 <h1>ALL BOOKINGS</h1>
-<ul>
 
+<% current_user.teacher_bookings.each do |booking| %>
+  <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
+  <p><%=booking.start_time%></p>
+  <p><%=booking.end_time%></p>
+  <p><%=booking.offer.description.capitalize%></p>
+<%end%>
 
-<% @bookings.each do |booking| %>
-  <%=  booking.start_time  %>
-  <%=  booking.end_time  %>
-  <h3><%=  booking.offer.title  %></h3>
-  <p><%=  booking.offer.description  %></p>
-<% end %>
-</ul>
 
 
 <%= link_to "HOME", root_path%>

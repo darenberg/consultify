@@ -1,7 +1,10 @@
-
+<h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id) %></h3>
+<p><%=@booking.offer.description.capitalize%></p>
 <%= @booking.start_time%>
 <%= @booking.end_time%>
 
-<%=  link_to "all bookings", offer_bookings_path %>
-<%= link_to "HOME", root_path%>
-<%= link_to "all offers ", offers_path%>
+<p><%= link_to "All Bookings", offer_bookings_path %></p>
+<p><%= link_to "Delete Booking", booking_path%></p>
+
+<p><%= link_to "HOME", root_path%></p>
+<p><%= link_to "All Offers ", offers_path%></p>
