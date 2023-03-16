@@ -1,46 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <div class ="container d-flex align-items-center justify-content-between py-2">
-    <a class="navbar-brand" href=<%= root_path %>><strong>Consultify</strong></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-        <%= link_to "All Offers", offers_path %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My Offers", teacher_offers_path %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My Bookings", bookings_path %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav me-auto">
-        <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
-      </ul>
-    </div>
+
+<div class="container pt-3" >
+<h5 class="display-10 text-center">Your Saved Offers </h5>
+
+ <div class="container d-flex align-items-center justify-content-center py-2">
+    <% @offers.each do |offer| %>
+      <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
+    <%end%>
   </div>
-</nav>
-
-
-
-<nav class="bg-dark navbar-dark">
-  <div class="container">
-    <a href="" class="navbar-brand"><i class="fas fa-tree mr-2"></i>Consultify</a>
-  </div>
-</nav>
-<section id="header" class="jumbotron text-center">
-  <h1 class="display-3">Consultify</h1>
-  <p class="lead">Get a consultation on anything you need!</p>
-</section>
-
-
-<div class="container" >
-  Explore Categories
+  <h5 class="display-12 text-center"> Popular Categories</h5>
    <div class="btn-group d-flex align-items-center justify-content-center pt-2">
     <% @categories.each do |category| %>
       <h3><%=  link_to category.capitalize, offers_path(category: category), class: "m-1 btn btn-success btn-sm"  %></h3>
@@ -48,7 +15,7 @@
     <h3><%=  link_to "More Categories", offers_path, class: "m-1 btn btn-success btn-sm"  %></h3>
 
   </div>
-  <div class="d-inline-flex m-2">
+  <div class="container d-flex align-items-center justify-content-center pt-1">
     <% if current_user.teacher? %>
       <p><%=  link_to "Create a New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %></p>
     <%end%>
@@ -61,12 +28,12 @@
 
 
 <section id="gallery">
-  <div class="container d-flex align-items-center justify-content-between pt-5">
+  <div class="container d-flex align-items-center justify-content-between my-3">
     <div class="row">
     <% @offers.each do |offer| %>
       <div class="col-lg-3 mb-3">
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="card-img-top">
+          <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1425&q=80" alt="" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title"><%= offer.title.capitalize %></h5>
             <p class="card-text"><%= offer.description %></p>
