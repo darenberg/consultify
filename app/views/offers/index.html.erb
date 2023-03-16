@@ -1,11 +1,4 @@
-<div class="container pt-3" > 
-<h5 class="display-10 text-center">Your Saved Offers </h5>
-
- <div class="container d-flex align-items-center justify-content-center py-2"> 
-    <% @offers.each do |offer| %>
-      <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
-    <%end%>
-  </div>
+<div class="container pt-3" >
   <h5 class="display-12 text-center"> Popular Categories</h5>
    <div class="btn-group d-flex align-items-center justify-content-center pt-2">
     <% @categories.each do |category| %>
@@ -18,12 +11,6 @@
     <% if current_user.teacher? %>
       <p><%=  link_to "Create a New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %></p>
     <%end%>
-
-
-    <% if current_user.teacher? %>
-      <p><%= link_to "My Offers", teacher_offers_path, class: "m-3  btn btn-primary btn-sm"%></p>
-    <% end %>
-
   </div>
 </div>
 
@@ -38,6 +25,8 @@
           <div class="card-body">
             <h5 class="card-title"><%= offer.title.capitalize %></h5>
             <p class="card-text"><%= offer.description %></p>
+            <p class="card-text"><%= offer.price %></p>
+
             <%= link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm" %>
             <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
           </div>
