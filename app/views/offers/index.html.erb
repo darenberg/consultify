@@ -48,7 +48,7 @@
   Popular Categories
    <div class="btn-group d-flex align-items-center justify-content-center pt-2">
     <% @offers.each do |offer| %>
-      <h3><%=  link_to offer.category.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
+    <h3><%=  link_to offer.category.capitalize, offers_path(category: offer.category), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
   </div>
   <div class="d-inline-flex m-2">
