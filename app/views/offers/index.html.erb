@@ -9,16 +9,16 @@
   </div>
   <h5 class="display-12 text-center"> Popular Categories</h5>
    <div class="btn-group d-flex align-items-center justify-content-center pt-2">
-    <% @offers.each do |offer| %>
-    <h3><%=  link_to offer.category.capitalize, offers_path(category: offer.category), class: "m-1 btn btn-success btn-sm"  %></h3>
+    <% @categories.each do |category| %>
+      <h3><%=  link_to category.capitalize, offers_path(category: category), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
+    <h3><%=  link_to "More Categories", offers_path, class: "m-1 btn btn-success btn-sm"  %></h3>
+
   </div>
   <div class="container d-flex align-items-center justify-content-center pt-1">
     <% if current_user.teacher? %>
       <p><%=  link_to "Create a New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %></p>
     <%end%>
-
-
   </div>
 </div>
 
@@ -31,7 +31,7 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1425&q=80" alt="" class="card-img-top">
           <div class="card-body">
-            <h5 class="card-title"><%= offer.title %></h5>
+            <h5 class="card-title"><%= offer.title.capitalize %></h5>
             <p class="card-text"><%= offer.description %></p>
             <%= link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm" %>
             <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>

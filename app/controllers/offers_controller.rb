@@ -10,17 +10,12 @@ class OffersController < ApplicationController
         OR users.email @@ :query
       SQL
       @offers = Offer.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @offers = Offer.all
-    end
-
-
-    if params[:category].present?
+    elsif params[:category].present?
       @offers = Offer.where(category: params[:category])
     else
       @offers = Offer.all
     end
-
+    @categories = @offers.map(&:category).uniq.first(10)
   end
 
   def show
