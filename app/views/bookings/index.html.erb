@@ -1,13 +1,20 @@
-<h1>ALL MY BOOKINGS</h1>
+<div class="p-3 m-3">
 
-<% current_user.teacher_bookings.each do |booking| %>
-  <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
-  <p><%=booking.start_time%></p>
-  <p><%=booking.end_time%></p>
-  <p><%=booking.offer.description.capitalize%></p>
-<%end%>
-
-
-
-<%= link_to "HOME", root_path%>
-<%= link_to "All Offers ", offers_path%>
+  <div>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <h1>ALL MY BOOKINGS</h1>
+      <h2>Bookings on my offers</h2>
+    </div>
+    <div>
+      <% current_user.teacher_bookings.each do |booking| %>
+        <div class="shadow p-3 mb-5 bg-white rounded">
+          <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
+          <p><%=booking.start_time%></p>
+          <p><%=booking.end_time%></p>
+          <p><%=booking.offer.description.capitalize%></p>
+          <p><%=booking.status%></p>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>

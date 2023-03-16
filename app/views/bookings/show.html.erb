@@ -1,39 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <div class ="container d-flex align-items-center justify-content-between py-2">
-    <a class="navbar-brand" href=<%= root_path %>>Consultify</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-        <%= link_to "All offers", offers_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My offers", offers_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My bookings", offers_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search for your next consultation" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id) %></h3>
-<p><%=@booking.offer.description.capitalize%></p>
-<%= @booking.start_time%>
-<%= @booking.end_time%>
-<%= @booking.status %>
-<p><%= link_to "All Bookings", bookings_path %></p>
-<p><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}%></p>
 
-<p><%= link_to "HOME", root_path%></p>
-<p><%= link_to "All Offers ", offers_path%></p>
-<div class="dropdown">
+<div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
+  <h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id), class: "booking-title" %></h3>
+  <p><%=@booking.offer.description.capitalize %></p>
+    <p><%=@booking.offer.category.capitalize%></p>
+
+  <%= @booking.start_time%>
+  <%= @booking.end_time%>
+
+  <p><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}, class: "button-pushable"%></p>
+</div>
