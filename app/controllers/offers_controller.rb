@@ -15,9 +15,9 @@ class OffersController < ApplicationController
     else
       @offers = Offer.all
     end
-
-
+    @categories = @offers.map(&:category).uniq.first(10)
   end
+
   def show
     @booking = Booking.new
   end
