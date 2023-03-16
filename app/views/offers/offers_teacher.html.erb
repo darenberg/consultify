@@ -1,15 +1,15 @@
 <div class="p-1 m-1">
   <div class="p-3 m-3">
-    <h1>My Offers</h1>
-    <div>
-      <%= link_to "New Offer", new_offer_path %>
+    <h1 class="display-10 text-center">My Offers</h1>
+    <div class="container d-flex align-items-center justify-content-center pt-1">
+      <%= link_to "New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %>
     </div>
   </div>
-  <div class="container d-flex align-items-center justify-content-between my-4 ">
+  <div class="container d-flex align-items-center justify-content-between my-3">
     <% @offers.each do |offer| %>
       <% if offer.user_id == current_user.id  %>
         <div class="p-2 m-2 w-100 shadow p-3 mb-5 bg-white rounded">
-          <h3><%=  link_to offer.title.capitalize, offer_path(offer.id)  %></h3>
+          <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "text-decoration-none"  %></h3>
           <p><%= offer.description.capitalize %></p>
           <p><%= offer.category.capitalize %></p>
           <p><%= offer.qualifications.capitalize %></p>

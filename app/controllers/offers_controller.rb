@@ -15,9 +15,15 @@ class OffersController < ApplicationController
     else
       @offers = Offer.all
     end
+<<<<<<< HEAD
     @categories = @offers.map(&:category).uniq.first(10)
   end
 
+=======
+
+
+  end
+>>>>>>> e546a7a7bc9e392fc5959fff21df1cdea8b32a82
   def show
     @booking = Booking.new
   end
