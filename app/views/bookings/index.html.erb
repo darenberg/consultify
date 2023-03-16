@@ -31,8 +31,12 @@
   <div>
     <div class="shadow p-3 mb-5 bg-white rounded">
       <h1>ALL MY BOOKINGS</h1>
-      <h2>Bookings on my offers</h2>
     </div>
+  <% if current_user.teacher? %>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+      <h2>My offers are booked for:</h2>
+    </div>
+
     <div>
       <% current_user.teacher_bookings.each do |booking| %>
         <div class="shadow p-3 mb-5 bg-white rounded">
@@ -44,15 +48,16 @@
         </div>
       <%end%>
     </div>
+  <%end%>
   </div>
 </div>
 
 <div class="shadow p-3 mb-5 bg-white rounded">
-  <h2>Bookings I made</h2>
+  <h2>I booked these offers for:</h2>
 </div>
 <div class="p-3 m-3">
       <% @bookings.each do |booking| %>
-        <div class="shadow p-3 mb-5 bg-white rounded">
+        <div class="shadow p-3 mb-5 bg-grey rounded">
           <%if current_user == booking.student %>
             <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
             <p><%=booking.start_time%></p>

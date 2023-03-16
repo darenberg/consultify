@@ -1,6 +1,6 @@
 class Offer < ApplicationRecord
-  include PgSearch::Model
-  multisearchable against: [:title, :category, :description]
+
+
   belongs_to :user, class_name: "User"
   has_many :bookings
 
