@@ -15,12 +15,8 @@ class OffersController < ApplicationController
     else
       @offers = Offer.all
     end
-<<<<<<< Updated upstream
     @categories = @offers.map(&:category).uniq.first(10)
   end
-=======
-
->>>>>>> Stashed changes
 
 
   end
