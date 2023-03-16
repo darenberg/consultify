@@ -31,11 +31,7 @@
     <p><%= @offer.description.capitalize %></p>
     <p><%= @offer.category.capitalize %></p>
     <p><%= @offer.qualifications.capitalize %></p>
-<<<<<<< Updated upstream
     <p><%= @offer.price %></p>
-=======
-     <p><%= @offer.price %></p>
->>>>>>> Stashed changes
     <div class="p-1 m-1">
       <% if current_user.teacher? %>
         <%= link_to "Delete this offer",
