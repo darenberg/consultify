@@ -1,73 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <div class ="container d-flex align-items-center justify-content-between py-2">
-      <%= link_to "Consultify", root_path, class: "btn btn-success btn"%>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item pt-2">
-          <%= link_to "HOME", root_path, class: "btn btn-success btn"%>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Offers</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">All offers</a></li>
-            <li><a class="dropdown-item" href="#">My Offers</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Manage Requests</a></li>
-            <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search for your next consultation" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
 
-
-<nav class="bg-dark navbar-dark">
-  <div class="container">
-    <a href="" class="navbar-brand"><i class="fas fa-tree mr-2"></i>Consultify</a>
-  </div>
-</nav>
-<section id="header" class="jumbotron text-center">
-  <h1 class="display-3">Consultify</h1>
-  <p class="lead">Get a consultation on anything you need!.</p>
-</section>
-
-<div class="container" > 
+<div class="container pt-3" > 
 <h5 class="display-10 text-center">Your Saved Offers </h5>
 
  <div class="container d-flex align-items-center justify-content-center py-2"> 
     <% @offers.each do |offer| %>
-      <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm"  %></h3>
+      <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
   </div>
-  <div class ="container d-flex align-items-center justify-content-center py-2">
-    <div class="d-inline-flex m-2">
-      <% if current_user.teacher? %>
-        <p><%=  link_to "Create a New Offer", new_offer_path, class: "btn btn-primary btn-sm" %></p>
-      <%end%>
-    </div>
-    <div>
-      <% if current_user.teacher? %>
-        <p><%= link_to "My Offers", teacher_offers_path, class: "btn btn-warning btn-sm" %></p>
-      <% end %>
-    </div>
+  <h5 class="display-12 text-center"> Popular Categories</h5>
+   <div class="btn-group d-flex align-items-center justify-content-center pt-2">
+    <% @offers.each do |offer| %>
+      <h3><%=  link_to offer.category.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
+    <%end%>
+  </div>
+  <div class="container d-flex align-items-center justify-content-center pt-1">
+    <% if current_user.teacher? %>
+      <p><%=  link_to "Create a New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %></p>
+    <%end%>
+
+
   </div>
 </div>
 
+
 <section id="gallery">
-  <div class="container d-flex align-items-center justify-content-between my-5">
+  <div class="container d-flex align-items-center justify-content-between my-3">
     <div class="row">
     <% @offers.each do |offer| %>
       <div class="col-lg-3 mb-3">
@@ -86,8 +43,5 @@
   </div>
 </section>
 
-<div class="container d-flex align-items-center justify-content-center pt-5">  
-  <div class="card">
-  <%= link_to "create a new offer" , new_offer_path, class: "btn btn-primary btn-sm" %>
-  </div>
-</div>
+
+
