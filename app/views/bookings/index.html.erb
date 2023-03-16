@@ -1,46 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <div class ="container d-flex align-items-center justify-content-between py-2">
-    <a class="navbar-brand" href=<%= root_path %>><strong>Consultify</strong></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-        <%= link_to "All Offers", offers_path %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My Offers", teacher_offers_path %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My Bookings", bookings_path %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav me-auto">
-        <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<div class="p-3 m-3">
+<div class="container p-3 m-3">
   <div>
-    <div class="shadow p-3 mb-5 bg-white rounded">
-      <h1>ALL MY BOOKINGS</h1>
-    </div>
-  <% if current_user.teacher? %>
-    <div class="shadow p-3 mb-5 bg-white rounded">
-      <h2>My offers are booked for:</h2>
-    </div>
 
-    <div>
+    <div class="col-6 shadow p-3 mb-5 bg-white rounded">
+      <h1 class="booking-title" >ALL MY BOOKINGS</h1>
+      <h2>You have scheduled advices with...</h2>
+    </div>
+    <div class="booking-cards">
+
       <% current_user.teacher_bookings.each do |booking| %>
-        <div class="shadow p-3 mb-5 bg-white rounded">
-          <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
+        <div class= "booking-card shadow p-3 mb-3">
+          <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
           <p><%=booking.start_time%></p>
           <p><%=booking.end_time%></p>
           <p><%=booking.offer.description.capitalize%></p>
@@ -52,14 +21,18 @@
   </div>
 </div>
 
-<div class="shadow p-3 mb-5 bg-white rounded">
-  <h2>I booked these offers for:</h2>
+<div class="container p-3 m-3">
+<div class="col-6 shadow p-3 mb-5 bg-white rounded">
+  <h2 class="booking-title">Bookings I made</h2>
+
 </div>
-<div class="p-3 m-3">
+<div class="booking-cards p-3 m-3">
       <% @bookings.each do |booking| %>
-        <div class="shadow p-3 mb-5 bg-grey rounded">
+
+        <div class="booking-card shadow p-3 mb-3">
+
           <%if current_user == booking.student %>
-            <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id) %></h3>
+            <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
             <p><%=booking.start_time%></p>
             <p><%=booking.end_time%></p>
             <p> <em><%=booking.offer.category.capitalize%></em>  </p>
@@ -69,3 +42,4 @@
         </div>
       <%end%>
     </div>
+</div>

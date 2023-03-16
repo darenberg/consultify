@@ -8,14 +8,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
          <% if current_user %>
         <li class="nav-item">
-        <%= link_to "All offers", offers_path %>
+        <%= link_to "All offers", offers_path, class:"nav-item" %>
         </li>
 
         <li class="nav-item">
-        <%= link_to "My offers", teacher_offers_path %>
+        <%= link_to "My offers", teacher_offers_path, class:"nav-item" %>
         </li>
         <li class="nav-item">
-        <%= link_to "My bookings", bookings_path %>
+        <%= link_to "My bookings", bookings_path, class:"nav-item" %>
         </li>
           <%end %>
         <li class="nav-item">
