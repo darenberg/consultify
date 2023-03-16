@@ -19,7 +19,6 @@ class OffersController < ApplicationController
   end
 
 
-  end
   def show
     @booking = Booking.new
   end
