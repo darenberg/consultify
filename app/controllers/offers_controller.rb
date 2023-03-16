@@ -2,7 +2,24 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy ]
 
   def index
-    @offers = Offer.all
+    if params[:query]
+      sql_query = <<~SQL
+        offers.title @@ :query
+        OR offers.category @@ :query
+        OR offers.description @@ :query
+        OR users.email @@ :query
+      SQL
+      @offers = Offer.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @offers = Offer.all
+    end
+
+
+    if params[:category].present?
+      @offers = Offer.where(category: params[:category])
+    else
+      @offers = Offer.all
+    end
 
   end
 

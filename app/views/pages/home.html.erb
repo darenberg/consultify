@@ -1,3 +1,4 @@
+
 <div class="banner justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
     <div class="container">
       <h1>Get the help you need!</h1>
@@ -10,14 +11,22 @@
         <p>Find consultant</p>
         <p>Get advise!</p>
         <% if current_user %>
-        <%= link_to "Check out the available offers from our consultants!", offers_path, class: "btn btn-success btn-rounded col-6" %>
+          <%= link_to "Check out the available offers from our consultants!", offers_path, class: "btn btn-success btn-rounded col-6" %>
         <%end %>
       </div>
     </div>
-    <div class="search-bar-main container">
-      <div class="search-bar-item">
-        <input type="text" name="search" id="search" placeholder="Look for your next consultation">
+
+    <div class="container search-bar-main">
+      <div class="card">
+        
+        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control search-bar-input",
+            placeholder: "consultify yourself"
+          %>
+          <%= submit_tag "Search", class: "btn search-bar-btn" %>
+        <% end %>
       </div>
-      <a class="search-bar-btn" href="#">Search</a>
     </div>
 </div>

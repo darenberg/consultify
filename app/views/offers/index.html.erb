@@ -1,3 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+  <div class ="container d-flex align-items-center justify-content-between py-2">
+    <a class="navbar-brand" href=<%= root_path %>><strong>Consultify</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+        <%= link_to "All Offers", offers_path %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "My Offers", teacher_offers_path %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "My Bookings", bookings_path %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto">
+        <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 <div class="container pt-3" > 
 <h5 class="display-10 text-center">Your Saved Offers </h5>
@@ -10,7 +37,7 @@
   <h5 class="display-12 text-center"> Popular Categories</h5>
    <div class="btn-group d-flex align-items-center justify-content-center pt-2">
     <% @offers.each do |offer| %>
-      <h3><%=  link_to offer.category.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
+    <h3><%=  link_to offer.category.capitalize, offers_path(category: offer.category), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
   </div>
   <div class="container d-flex align-items-center justify-content-center pt-1">
@@ -42,6 +69,3 @@
     </div>
   </div>
 </section>
-
-
-
