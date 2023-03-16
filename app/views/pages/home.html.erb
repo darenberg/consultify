@@ -1,30 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-success">
-  <div class ="container d-flex align-items-center justify-content-between py-2">
-    <a class="navbar-brand" href=<%= root_path %>><strong>Consultify</strong></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-        <%= link_to "All offers", offers_path, class:"nav-item" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My offers", teacher_offers_path, class:"nav-item" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "My bookings", bookings_path, class:"nav-item" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav me-auto">
-        <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
-      </ul>
-    </div>
-  </div>
-</nav>
 <div class="banner justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
     <div class="container">
       <h1>Get the help you need!</h1>
