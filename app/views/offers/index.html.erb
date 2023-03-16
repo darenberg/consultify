@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-
 <div class="container pt-3" >
-=======
-<div class="container pt-3" >
->>>>>>> 15cc561e6d9a785093b5f322068ccc87eefcbf07
 <h5 class="display-10 text-center">Your Saved Offers </h5>
 
  <div class="container d-flex align-items-center justify-content-center py-2">
@@ -23,12 +18,6 @@
     <% if current_user.teacher? %>
       <p><%=  link_to "Create a New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %></p>
     <%end%>
-
-
-    <% if current_user.teacher? %>
-      <p><%= link_to "My Offers", teacher_offers_path, class: "m-3  btn btn-primary btn-sm"%></p>
-    <% end %>
-
   </div>
 </div>
 
