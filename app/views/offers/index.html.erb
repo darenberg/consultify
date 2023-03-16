@@ -1,34 +1,27 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-success">
   <div class ="container d-flex align-items-center justify-content-between py-2">
-      <a class="navbar-brand" href=<%= root_path %>>Consultify</a>
+    <a class="navbar-brand" href=<%= root_path %>><strong>Consultify</strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item pt-2">
-          <%= link_to "HOME", root_path, class: "btn btn-success btn"%>
+        <li class="nav-item">
+        <%= link_to "All offers", offers_path %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
+        <%= link_to "My offers", teacher_offers_path %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Sheduled Offers</a></li>
-            <li><a class="dropdown-item" href="#">Pending Offers</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Manage Offers</a></li>
-            <li><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %></li>
-          </ul>
+        <li class="nav-item">
+        <%= link_to "My bookings", bookings_path %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search for your next consultation" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
+      <ul class="navbar-nav me-auto">
+        <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
+      </ul>
     </div>
   </div>
 </nav>
@@ -42,28 +35,33 @@
 </nav>
 <section id="header" class="jumbotron text-center">
   <h1 class="display-3">Consultify</h1>
-  <p class="lead">Get a consultation on anything you need!.</p>
+  <p class="lead">Get a consultation on anything you need!</p>
 </section>
 
 
 <div class="container" > Your Saved Offers
  <div class="btn-group d-flex align-items-center justify-content-center pt-2">
     <% @offers.each do |offer| %>
-      <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm"  %></h3>
+      <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
+    <%end%>
+  </div>
+  Popular Categories
+   <div class="btn-group d-flex align-items-center justify-content-center pt-2">
+    <% @offers.each do |offer| %>
+      <h3><%=  link_to offer.category.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
   </div>
   <div class="d-inline-flex m-2">
     <% if current_user.teacher? %>
-      <p><%=  link_to "Create a New Offer", new_offer_path, class: "btn btn-primary btn-sm" %></p>
+      <p><%=  link_to "Create a New Offer", new_offer_path, class: "m-3 btn btn-primary btn-sm" %></p>
     <%end%>
 
-    <p><%=  link_to "My Offers", teacher_offers_path , class: "btn btn-primary btn-sm" %></p>
-
     <% if current_user.teacher? %>
-      <p><%= link_to "My Offers", teacher_offers_path, class: "btn btn-primary btn-sm"%></p>
+      <p><%= link_to "My Offers", teacher_offers_path, class: "m-3  btn btn-primary btn-sm"%></p>
     <% end %>
   </div>
 </div>
+
 
 <section id="gallery">
   <div class="container d-flex align-items-center justify-content-between pt-5">
@@ -86,9 +84,8 @@
 </section>
 
 
-<div class="container d-flex align-items-center justify-content-center pt-5">  
+<div class="container d-flex align-items-center justify-content-center pt-5">
   <div class="card">
-  <%= link_to "create a new offer" , new_offer_path, class: "btn btn-primary btn-sm" %>
+  <%= link_to "Create a New Offer" , new_offer_path, class: "btn btn-primary btn-sm" %>
   </div>
 </div>
-
