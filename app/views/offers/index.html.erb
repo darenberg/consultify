@@ -1,4 +1,3 @@
-
 <div class="container pt-3" >
 <h5 class="display-10 text-center">Your Saved Offers </h5>
 
@@ -33,11 +32,8 @@
           <div class="card-body">
             <h5 class="card-title"><%= offer.title.capitalize %></h5>
             <p class="card-text"><%= offer.description %></p>
-<<<<<<< Updated upstream
-                  <p class="card-text"><%= offer.price %></p>
-=======
-                     <p class="card-text"><%= offer.price %></p>
->>>>>>> Stashed changes
+            <p class="card-text"><%= offer.price %></p>
+
             <%= link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm" %>
             <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
           </div>
