@@ -2,8 +2,11 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy ]
 
   def index
-    @offers = Offer.all
-
+    if params[:category].present?
+      @offers = Offer.where(category: params[:category])
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
