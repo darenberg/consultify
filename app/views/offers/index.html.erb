@@ -1,8 +1,8 @@
 
-<div class="container pt-3" > 
+<div class="container pt-3" >
 <h5 class="display-10 text-center">Your Saved Offers </h5>
 
- <div class="container d-flex align-items-center justify-content-center py-2"> 
+ <div class="container d-flex align-items-center justify-content-center py-2">
     <% @offers.each do |offer| %>
       <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
@@ -33,6 +33,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= offer.title.capitalize %></h5>
             <p class="card-text"><%= offer.description %></p>
+                  <p class="card-text"><%= offer.price %></p>
             <%= link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm" %>
             <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
           </div>
