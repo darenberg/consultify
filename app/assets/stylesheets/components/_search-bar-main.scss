@@ -6,7 +6,7 @@
   margin-top: 30px;
 }
 
-.search-bar-main input{
+.search-bar-main .search-bar-input{
   width: 550px;
   border: 0px;
   border-top-left-radius: 10px;
@@ -14,7 +14,7 @@
   height: 40px;
 }
 
-.search-bar-main a{
+.search-bar-main .search-bar-btn{
   background-color: rgb(75, 179, 75);
   height: 40px;
   text-decoration: none;
