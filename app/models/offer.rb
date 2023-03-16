@@ -1,8 +1,5 @@
 class Offer < ApplicationRecord
-<<<<<<< HEAD
-=======
   include PgSearch::Model
->>>>>>> e546a7a7bc9e392fc5959fff21df1cdea8b32a82
   belongs_to :user, class_name: "User"
   has_many :bookings
 
