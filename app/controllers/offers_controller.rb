@@ -14,6 +14,13 @@ class OffersController < ApplicationController
       @offers = Offer.all
     end
 
+
+    if params[:category].present?
+      @offers = Offer.where(category: params[:category])
+    else
+      @offers = Offer.all
+    end
+
   end
 
   def show
