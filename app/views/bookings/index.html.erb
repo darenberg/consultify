@@ -1,12 +1,12 @@
-<div class="p-3 m-3">
+<div class="container p-3 m-3">
   <div>
-    <div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="col-6 shadow p-3 mb-5 bg-white rounded">
       <h1 class="booking-title" >ALL MY BOOKINGS</h1>
       <h2>You have scheduled advices with...</h2>
     </div>
-    <div>
+    <div class="booking-cards">
       <% current_user.teacher_bookings.each do |booking| %>
-        <div class="booking-card shadow p-3 mb-5">
+        <div class= "booking-card shadow p-3 mb-3">
           <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
           <p><%=booking.start_time%></p>
           <p><%=booking.end_time%></p>
@@ -16,4 +16,23 @@
       <%end%>
     </div>
   </div>
+</div>
+<div class="container p-3 m-3">
+<div class="col-6 shadow p-3 mb-5 bg-white rounded">
+  <h2 class="booking-title">Bookings I made</h2>
+</div>
+<div class="booking-cards p-3 m-3">
+      <% @bookings.each do |booking| %>
+        <div class="booking-card shadow p-3 mb-3">
+          <%if current_user == booking.student %>
+            <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
+            <p><%=booking.start_time%></p>
+            <p><%=booking.end_time%></p>
+            <p> <em><%=booking.offer.category.capitalize%></em>  </p>
+            <p><%=booking.offer.description.capitalize%></p>
+            <p><%=booking.status%></p>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
 </div>

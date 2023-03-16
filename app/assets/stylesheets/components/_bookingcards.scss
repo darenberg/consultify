@@ -1,5 +1,13 @@
+.booking-cards {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  }
+
+
+
 .booking-card {
 background-color: #18ce72;
 background-image: linear-gradient(301deg, #18ce72 0%, #ffffff 100%);
-border-radius: 20px;
+border-radius: 10px;
+margin: 10px;
 }

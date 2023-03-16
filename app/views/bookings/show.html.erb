@@ -6,6 +6,13 @@
 
   <%= @booking.start_time%>
   <%= @booking.end_time%>
+  <%= @booking.status %>
+  <% if current_user == @booking.offer.user %>
+    <%= simple_form_for [@booking.offer, @booking] do |f| %>
+    <%= f.select :status, collection: ["accepted", "declined"] %>
+    <%= f.submit %>
+    <% end %>
+  <% end %>
 
   <p><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}, class: "button-pushable"%></p>
 </div>
