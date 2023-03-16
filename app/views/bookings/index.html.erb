@@ -3,9 +3,12 @@
 
     <div class="col-6 shadow p-3 mb-5 bg-white rounded">
       <h1 class="booking-title" >ALL MY BOOKINGS</h1>
-      <h2>You have scheduled advices with...</h2>
     </div>
-    <div class="booking-cards">
+    <% if current_user.teacher? %>
+      <div class="col-6 shadow p-3 mb-5 bg-white rounded">
+        <h3>Booked with me</h3>
+      </div>
+      <div class="booking-cards">
 
       <% current_user.teacher_bookings.each do |booking| %>
         <div class= "booking-card shadow p-3 mb-3">
