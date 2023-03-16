@@ -6,15 +6,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <% if current_user %>
         <li class="nav-item">
         <%= link_to "All offers", offers_path %>
         </li>
+
         <li class="nav-item">
         <%= link_to "My offers", teacher_offers_path %>
         </li>
         <li class="nav-item">
         <%= link_to "My bookings", bookings_path %>
         </li>
+          <%end %>
         <li class="nav-item">
         <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </li>
@@ -38,13 +41,20 @@
         <p>Get advise!</p>
         <% if current_user %>
         <%= link_to "Check out the available offers from our consultants!", offers_path, class: "btn btn-success btn-rounded col-6" %>
-        <%end %>
       </div>
     </div>
     <div class="search-bar-main container">
       <div class="search-bar-item">
-        <input type="text" name="search" id="search" placeholder="Look for your next consultation">
+        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a movie"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
       </div>
       <a class="search-bar-btn" href="#">Search</a>
+        <%end %>
     </div>
 </div>
