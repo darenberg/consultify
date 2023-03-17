@@ -1,6 +1,6 @@
 
-<div class="d-flex">
-  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
+<div class="container d-flex align-items-center justify-content-between my-3">
+  <div class="card w-100 p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
     <h2><%= @offer.title.capitalize %></h2>
     <p><%= @offer.description.capitalize %></p>
     <p><%= @offer.category.capitalize %></p>
@@ -10,16 +10,16 @@
       <% if current_user.teacher? %>
         <%= link_to "Delete this offer",
         offer_path(@offer),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class: "m-1 btn btn-outline-danger" %>
       <% end %>
     </div>
     <div class="p-1 m-1">
       <% if current_user.teacher? %>
-        <%=  link_to "Edit this offer", edit_offer_path(@offer) %>
+        <%=  link_to "Edit this offer", edit_offer_path(@offer), class: "m-1 btn btn-primary" %>
       <% end %>
     </div>
   </div>
-  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
+  <div class="container p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
     <h3>Book this offer</h3>
     <%= simple_form_for [@offer, @booking] do |f| %>
     <%= f.input :start_time %>
