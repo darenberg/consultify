@@ -11,10 +11,10 @@
   <% if current_user == @booking.offer.user %>
     <%= simple_form_for [@booking.offer, @booking] do |f| %>
     <%= f.select :status, collection: ["accepted", "declined"] %>
-    <%= f.submit %>
+    <%= f.submit%>
     <% end %>
   <% end %>
 
-  <p class="button"><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}, class: "button-pushable"%></p>
-  <%= link_to "Back", bookings_path%>
+  <p><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}, class: "destroy-button"%></p>
+  <p><%= link_to "Back", bookings_path, class: "back-button"%></p>
 </div>
