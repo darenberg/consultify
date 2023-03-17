@@ -3,7 +3,7 @@
 
 
   <h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id), class: "booking-title" %></h3>
-  <p class="description"><%=@booking.offer.description.capitalize %></p>
+  <p class="description fst-italic"><%=@booking.offer.description.capitalize %></p>
   <p>Category - <%=@booking.offer.category.capitalize%></p>
   <p>Qualifications - <%=@booking.offer.qualifications.capitalize%></p>
     <%= @booking.start_time.strftime("%m.%d")%>
