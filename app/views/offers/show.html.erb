@@ -1,6 +1,6 @@
 
 <div class="d-flex">
-  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
+  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded col-6" >
     <h2><%= @offer.title.capitalize %></h2>
     <p><%= @offer.description.capitalize %></p>
     <p>CATEGORY - <%= @offer.category.capitalize %></p>
@@ -33,9 +33,9 @@
       <%= f.submit %>
     <% end %>
   </div>
-  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
-    <h3>Review</h3>
-    <%= render "reviews/review_form", offer: @offer, review: @review %>
-    <%= link_to "Back to all offers", offers_path, class: "back-button" %>
-  </div>
+</div>
+<div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
+  <h3>Review</h3>
+  <%= render "reviews/review_form", offer: @offer, review: @review %>
+  <%= link_to "Back to all offers", offers_path, class: "back-button" %>
 </div>
