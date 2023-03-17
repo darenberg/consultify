@@ -5,21 +5,25 @@
       <h1 class="booking-title" >ALL MY BOOKINGS</h1>
     </div>
     <% if current_user.teacher? %>
+
       <div class="col-6 shadow p-3 mb-5 bg-white rounded">
         <h3>Booked with me</h3>
       </div>
       <div class="booking-cards">
-
+      <% if @teacher_bookings %>
       <% current_user.teacher_bookings.each do |booking| %>
-        <div class= "booking-card shadow p-3 mb-3">
-          <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
+        <div class= "booking-card shadow">
+          <h3 class="m-1 p-4"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
          <div class="d-flex">
-          <p class="font-weight-bold m-1 p-1"><%=booking.start_time.strftime("%m.%d")%></p>
-          <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
+          <p class="font-weight-bold m-1 p-4"><%=booking.start_time.strftime("%m.%d")%></p>
+          <p class="m-1 p-4"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
           <p class="m-1 p-1"></p>
-          <p class="font-weight-bold m-1 p-1 "><%=booking.status%></p>
+          <p class="font-weight-bold m-1 p-4 "><%=booking.status%></p>
          </div>
         </div>
+      <%end%>
+      <%else%>
+      <p> You have no consults booked at the moment. Keep on eye on this page for your chance to give advice.</p>
       <%end%>
     </div>
   <%end%>
@@ -31,21 +35,25 @@
   <h2 class="booking-title">Bookings I made</h2>
 
 </div>
+
 <div class="booking-cards p-3 m-3">
-      <% @bookings.each do |booking| %>
-
-        <div class="booking-card shadow p-3 mb-3">
-
-          <%if current_user == booking.student %>
+  <% if @student_bookings %>
+    <% @bookings.each do |booking| %>
+      <div class="booking-card shadow p-3 mb-3">
+        <%if current_user == booking.student %>
           <div class="d-flex">
-          <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
-          <p class="m-1 p-1 font-weight-bold"><%=booking.start_time.strftime("%m.%d")%></p>
-          <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
-          <p class="m-1 p-1"></p>
-          <p class="font-weight-bold m-1 p-1"><%=booking.status%></p>
+            <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
+            <p class="m-1 p-1 font-weight-bold"><%=booking.start_time.strftime("%m.%d")%></p>
+            <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
+            <p class="m-1 p-1"></p>
+            <p class="font-weight-bold m-1 p-1"><%=booking.status%></p>
+
+
           </div>
-          <%end%>
-        </div>
-      <%end%>
-    </div>
+        <%end%>
+      </div>
+  <%end%>
+    <%else%>
+      <p>You have not made a booking yet. Check out some <%=link_to "offers", offers_path%> and book a consult with one of our experts</p>
+    <%end%>
 </div>
