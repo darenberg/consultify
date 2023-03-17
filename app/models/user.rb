@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :teacher_offers, foreign_key: :user_id, class_name: "Offer"
+  has_many :reviews, dependent: :destroy
 
   has_many :teacher_bookings, through: :teacher_offers, source: :bookings
 

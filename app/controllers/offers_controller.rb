@@ -18,8 +18,11 @@ class OffersController < ApplicationController
     @categories = @offers.map(&:category).uniq.first(10)
   end
 
+
+
   def show
     @booking = Booking.new
+    @review = Review.new
   end
 
   def offers_teacher
@@ -63,7 +66,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:category, :title, :description, :qualifications)
+    params.require(:offer).permit(:category, :title, :description, :qualifications, :price)
   end
 
   def set_offer
