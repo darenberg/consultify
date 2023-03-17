@@ -11,13 +11,13 @@
       <div class="booking-cards">
 
       <% current_user.teacher_bookings.each do |booking| %>
-        <div class= "booking-card shadow p-3 mb-3">
-          <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
+        <div class= "booking-card shadow">
+          <h3 class="m-1 p-4"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
          <div class="d-flex">
-          <p class="font-weight-bold m-1 p-1"><%=booking.start_time.strftime("%m.%d")%></p>
-          <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
+          <p class="font-weight-bold m-1 p-4"><%=booking.start_time.strftime("%m.%d")%></p>
+          <p class="m-1 p-4"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
           <p class="m-1 p-1"></p>
-          <p class="font-weight-bold m-1 p-1 "><%=booking.status%></p>
+          <p class="font-weight-bold m-1 p-4 "><%=booking.status%></p>
          </div>
         </div>
       <%end%>
@@ -31,18 +31,18 @@
   <h2 class="booking-title">Bookings I made</h2>
 
 </div>
-<div class="booking-cards p-3 m-3">
+<div class="booking-cards">
       <% @bookings.each do |booking| %>
 
-        <div class="booking-card shadow p-3 mb-3">
+        <div class="booking-card shadow">
 
           <%if current_user == booking.student %>
+          <h3 class="m-1 p-4"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
           <div class="d-flex">
-          <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
-          <p class="m-1 p-1 font-weight-bold"><%=booking.start_time.strftime("%m.%d")%></p>
-          <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
-          <p class="m-1 p-1"></p>
-          <p class="font-weight-bold m-1 p-1"><%=booking.status%></p>
+            <p class="m-1 p-4 font-weight-bold"><%=booking.start_time.strftime("%m.%d")%></p>
+            <p class="m-1 p-4"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
+            <p class="m-1 p-1"></p>
+            <p class="font-weight-bold m-1 p-4"><%=booking.status%></p>
           </div>
           <%end%>
         </div>
