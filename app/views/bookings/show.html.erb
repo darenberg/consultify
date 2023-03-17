@@ -11,11 +11,10 @@
     <%= @booking.end_time.strftime("%H.%M")%>
     <%= @booking.status %>
 
-  <%end%>
   <% if current_user == @booking.offer.user %>
     <%= simple_form_for [@booking.offer, @booking] do |f| %>
-    <%= f.select :status, collection: ["accepted", "declined"] %>
-    <%= f.submit%>
+      <%= f.select :status, collection: ["accepted", "declined"] %>
+      <%= f.submit%>
     <% end %>
   <% end %>
 

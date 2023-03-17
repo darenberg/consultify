@@ -1,15 +1,15 @@
 
-<div class="d-flex">
-  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
+<div class="d-flex width=100vw">
+  <div class="w-50 p-3 m-3 shadow p-3 mb-5 bg-white rounded" style="width=200px" >
     <h2><%= @offer.title.capitalize %></h2>
     <p><%= @offer.description.capitalize %></p>
-    <p>CATEGORY - <%= @offer.category.capitalize %></p>
+    <p><%=  link_to @offer.category.capitalize, offers_path(category: @offer.category), class: "m-1 btn btn-success btn-sm"  %></p>
     <p>QUALIFICATIONS - <%= @offer.qualifications.capitalize %></p>
     <p><%= @offer.price %></p>
      <% if @offer.reviews  %>
      <p> Reviews: </p>
      <% @offer.reviews.each do |review| %>
-     <p>-<%= review.content.capitalize %>-</p>
+     <p> - <%= review.content.capitalize %> - <%=@offer.user.email%></p>
     <% end %>
       <% end %>
     <div class="p-1 m-1">
@@ -33,9 +33,9 @@
       <%= f.submit %>
     <% end %>
   </div>
-  <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
-    <h3>Review</h3>
-    <%= render "reviews/review_form", offer: @offer, review: @review %>
-    <%= link_to "Back to all offers", offers_path, class: "back-button" %>
-  </div>
+</div>
+<div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
+  <h3>Review</h3>
+  <%= render "reviews/review_form", offer: @offer, review: @review %>
+  <%= link_to "Back to all offers", offers_path, class: "back-button" %>
 </div>
