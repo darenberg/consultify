@@ -1,4 +1,10 @@
 .card {
   background-color: transparent;
   border: none;
+  box-shadow: 6px 6px 6px gray;
+}
+
+.card-description{
+  max-height: 200px;
+  overflow: scroll;
 }
