@@ -2,12 +2,12 @@
 <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
   <h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id), class: "booking-title" %></h3>
   <p class="description"><%=@booking.offer.description.capitalize %></p>
-  <p>Category - <%=@booking.offer.category.capitalize%></p>
-  <p>Qualifications - <%=@booking.offer.qualifications.capitalize%></p>
-  <%= @booking.start_time.strftime("%m.%d")%>
-  <%= @booking.start_time.strftime("%H.%M")%>
-  <%= @booking.end_time.strftime("%H.%M")%>
-  <%= @booking.status %>
+  <p>CATEGORY - <%=@booking.offer.category.capitalize%></p>
+  <p>QUALIFICATIONS - <%=@booking.offer.qualifications.capitalize%></p>
+  <p>DATE - <%= @booking.start_time.strftime("%m.%d")%></p>
+  <p>TIME - <%= @booking.start_time.strftime("%H.%M")%> -
+            <%= @booking.end_time.strftime("%H.%M")%></p>
+  <p>STATUS - <%= @booking.status %></p>
   <% if current_user == @booking.offer.user %>
     <%= simple_form_for [@booking.offer, @booking] do |f| %>
     <%= f.select :status, collection: ["accepted", "declined"] %>
