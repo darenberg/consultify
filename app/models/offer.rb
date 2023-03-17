@@ -1,10 +1,7 @@
 class Offer < ApplicationRecord
-
-  include PgSearch::Model
-
   belongs_to :user, class_name: "User"
-  has_many :bookings
-
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   validates :title, presence: true
   validates :category, presence: true
   validates :description, presence: true

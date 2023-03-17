@@ -4,8 +4,9 @@
     <% @categories.each do |category| %>
       <h3><%=  link_to category.capitalize, offers_path(category: category), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
+    <%if @categories.count <= 1%>
     <h3><%=  link_to "More Categories", offers_path, class: "m-1 btn btn-success btn-sm"  %></h3>
-
+    <%end%>
   </div>
   <div class="container d-flex align-items-center justify-content-center pt-1">
     <% if current_user.teacher? %>
@@ -14,23 +15,18 @@
   </div>
 </div>
 
-
-<section id="gallery">
-  <div class="container d-flex align-items-center justify-content-between my-3">
-    <div class="p-1 m-1 d-flex">
+<div class="container d-flex align-items-center justify-content-between my-3">
+  <div class="p-1 m-1 d-flex flex-wrap">
     <% @offers.each do |offer| %>
-      <div class="col-lg-3 mb-3" style="height: 200px;">
-        <div class="card h-60">
-            <div class="card-body">
-            <h5 class="card-title"><%= offer.title.capitalize %></h5>
-            <div class="card-text" style="max-height:200;"><%= offer.description %></div>
-              <div class= "card-bottom fixed-bottom">
-                <%= link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm" %>
-              </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= offer.title %></h5>
+            <p class="card-text"><%= offer.description %></p>
+             <%= link_to offer.title.capitalize, offer_path(offer.id), class: "btn btn-success btn-sm" %>
           </div>
         </div>
       </div>
-      <%end%>
-    </div>
+    <% end %>
   </div>
-</section>
+</div>

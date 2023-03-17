@@ -11,20 +11,21 @@
         <p>Get advise!</p>
         <% if current_user %>
           <%= link_to "Check out the available offers from our consultants!", offers_path, class: "btn btn-success btn-rounded col-6" %>
-        <%end %>
+        <% end %>
       </div>
     </div>
 
     <div class="container search-bar-main">
       <div class="card-home">
-        <div style="widht: 100%;">
-        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control search-bar-input",
-            placeholder: "consultify yourself"
-          %>
-          <%= submit_tag "Search", class: "btn search-bar-btn" %>
+        <%if current_user%>
+          <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-bar-input",
+              placeholder: "consultify yourself"
+            %>
+            <%= submit_tag "Search", class: "btn search-bar-btn" %>
+          <% end %>
         <% end %>
         </div>
       </div>
