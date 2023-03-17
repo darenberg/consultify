@@ -4,9 +4,9 @@
     <% @categories.each do |category| %>
       <h3><%=  link_to category.capitalize, offers_path(category: category), class: "m-1 btn btn-success btn-sm"  %></h3>
     <%end%>
-
+    <%if @categories.count == 1%>
     <h3><%=  link_to "More Categories", offers_path, class: "m-1 btn btn-success btn-sm"  %></h3>
-
+    <%end%>
   </div>
   <div class="container d-flex align-items-center justify-content-center pt-1">
     <% if current_user.teacher? %>
