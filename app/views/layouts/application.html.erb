@@ -73,7 +73,7 @@
       </div>
     </nav>
     <%= yield %>
-    <div class= "bottom" style="height: 150px;">
+    <div class= "bottom" style="height: 150px; <%= "background-color: black !important" if params[:action] == "home" %> ">
 
     </div>
     <div class="footer-general">
