@@ -1,5 +1,5 @@
 <div class="container pt-3" >
-  <h5 class="display-12 text-center"> Popular Categories</h5>
+  <h5 class="display-12 text-center"> Suggested Categories</h5>
    <div class="btn-group d-flex align-items-center justify-content-center pt-2">
     <% @categories.each do |category| %>
       <h3><%=  link_to category.capitalize, offers_path(category: category), class: "m-1 btn btn-success btn-sm"  %></h3>
