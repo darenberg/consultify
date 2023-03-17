@@ -1,10 +1,21 @@
-<div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
-  <%= simple_form_for(@offer) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :category %>
-    <%= f.input :qualifications %>
-    <%= f.input :price %>
-    <%= f.submit  %>
-  <% end %>
+
+<div class="signup">
+  <div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="box col-12 col-lg-8">
+
+      <h2 class="text-center mb-5">Describe the new offer you want to create</h2>
+      <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
+        <%= simple_form_for(@offer) do |f| %>
+          <%= f.input :title %>
+          <%= f.input :description %>
+          <%= f.input :category %>
+          <%= f.input :qualifications %>
+          <%= f.input :price %>
+          <%= f.submit  %>
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
