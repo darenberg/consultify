@@ -5,11 +5,12 @@
       <h1 class="booking-title" >ALL MY BOOKINGS</h1>
     </div>
     <% if current_user.teacher? %>
+
       <div class="col-6 shadow p-3 mb-5 bg-white rounded">
         <h3>Booked with me</h3>
       </div>
       <div class="booking-cards">
-
+      <% if @teacher_bookings %>
       <% current_user.teacher_bookings.each do |booking| %>
         <div class= "booking-card shadow p-3 mb-3">
           <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
@@ -20,6 +21,9 @@
           <p class="font-weight-bold m-1 p-1 "><%=booking.status%></p>
          </div>
         </div>
+      <%end%>
+      <%else%>
+      <p> You have no consults booked at the moment. Keep on eye on this page for your chance to give advice.</p>
       <%end%>
     </div>
   <%end%>
