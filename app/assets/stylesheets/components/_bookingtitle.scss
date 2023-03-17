@@ -24,6 +24,7 @@
   overflow: hidden;
   z-index: 1;
   border: none;
+  text-decoration: none;
   &:after {
     content: '';
     position: absolute;
@@ -101,7 +102,7 @@
   }
 }
 
-.update-button {
+.edit-button {
   $color: rgb(1, 196, 79);
   display: inline-block;
   padding: .75rem 1.25rem;
