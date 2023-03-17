@@ -3,8 +3,8 @@
       <h1>Get the help you need!</h1>
       <p>Make your life easier by getting advise from the right person.</p>
     </div>
-    <div class="card d-flex container">
-      <div>
+    <div class="card-home d-flex container">
+      <div style="width: 100%;">
         <h2>Consultations on anything!</h2>
         <p>Sign up</p>
         <p>Find consultant</p>
@@ -16,8 +16,8 @@
     </div>
 
     <div class="container search-bar-main">
-      <div class="card">
-        
+      <div class="card-home">
+        <div style="widht: 100%;">
         <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
@@ -26,6 +26,7 @@
           %>
           <%= submit_tag "Search", class: "btn search-bar-btn" %>
         <% end %>
+        </div>
       </div>
     </div>
 </div>
