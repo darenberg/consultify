@@ -22,6 +22,7 @@ class OffersController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
   end
 
   def offers_teacher
