@@ -15,12 +15,12 @@
       <% if current_user.teacher? %>
         <%= link_to "Delete this offer",
         offer_path(@offer),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "destroy-button" %>
       <% end %>
     </div>
     <div class="p-1 m-1">
       <% if current_user.teacher? %>
-        <%=  link_to "Edit this offer", edit_offer_path(@offer) %>
+        <%=  link_to "Edit this offer", edit_offer_path(@offer), class: "edit-button" %>
       <% end %>
     </div>
   </div>
@@ -36,6 +36,6 @@
   <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
   <%= render "reviews/review_form", offer: @offer, review: @review %>
 
-<%= link_to "Back to all offers", offers_path %>
+<%= link_to "Back to all offers", offers_path, class: "back-button" %>
   </div>
 </div>
