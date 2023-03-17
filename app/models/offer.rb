@@ -5,6 +5,9 @@ class Offer < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true
   validates :description, presence: true
+
+  validates :price,  numericality: { only_decimal: true }
+
   validates :price, presence: true
   validates :price, numericality: { only_decimal: true }
 

@@ -12,11 +12,13 @@
 
       <% current_user.teacher_bookings.each do |booking| %>
         <div class= "booking-card shadow p-3 mb-3">
-          <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
-          <p><%=booking.start_time%></p>
-          <p><%=booking.end_time%></p>
-          <p><%=booking.offer.description.capitalize%></p>
-          <p><%=booking.status%></p>
+          <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
+         <div class="d-flex">
+          <p class="font-weight-bold m-1 p-1"><%=booking.start_time.strftime("%m.%d")%></p>
+          <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
+          <p class="m-1 p-1"></p>
+          <p class="font-weight-bold m-1 p-1 "><%=booking.status%></p>
+         </div>
         </div>
       <%end%>
     </div>
@@ -35,12 +37,13 @@
         <div class="booking-card shadow p-3 mb-3">
 
           <%if current_user == booking.student %>
-            <h3><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
-            <p><%=booking.start_time%></p>
-            <p><%=booking.end_time%></p>
-            <p> <em><%=booking.offer.category.capitalize%></em>  </p>
-            <p><%=booking.offer.description.capitalize%></p>
-            <p><%=booking.status%></p>
+          <div class="d-flex">
+          <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
+          <p class="m-1 p-1 font-weight-bold"><%=booking.start_time.strftime("%m.%d")%></p>
+          <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
+          <p class="m-1 p-1"></p>
+          <p class="font-weight-bold m-1 p-1"><%=booking.status%></p>
+          </div>
           <%end%>
         </div>
       <%end%>
