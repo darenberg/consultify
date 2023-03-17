@@ -42,7 +42,7 @@
         <%elsif current_user == booking.student%>
           <div class="d-flex">
             <h3 class="m-1 p-1"><%=link_to booking.offer.title.capitalize, offer_booking_path(booking.offer.id, booking.id), class: "booking-title" %></h3>
-            <p class="m-1 p-1 font-weight-bold"><%=booking.start_time.strftime("%m.%d")%></p>
+            <p class="m-1 p-1 font-weight-normal"><%=booking.start_time.strftime("%m.%d")%></p>
             <p class="m-1 p-1"><%=booking.start_time.strftime("%H:%M")%>-<%=booking.end_time.strftime("%H:%M")%></p>
             <p class="m-1 p-1"></p>
             <p class="font-weight-bold m-1 p-1"><%=booking.status%></p>
