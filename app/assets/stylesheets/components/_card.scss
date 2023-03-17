@@ -1,4 +1,4 @@
-.card {
+.card-body {
   background-color: transparent;
   border: none;
   box-shadow: 6px 6px 6px gray;
@@ -6,7 +6,7 @@
 
 .card-body{
   max-height: 250px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .card-home {
