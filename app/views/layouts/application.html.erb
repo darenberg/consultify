@@ -52,30 +52,16 @@
         </li>
       </ul>
       <ul class="navbar-nav">
-      <%if current_user%>
-        <div class="justify_end">
-          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "m-1 btn btn-outline-danger" %>
-        </div>
-        </ul>
-      <%else%>
-        <div class="justify_end">
-          <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
+        <%if current_user%>
+          <div class="justify_end">
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "m-1 btn btn-outline-danger" %>
           </div>
-            </li>
-            </ul>
-            <ul class="navbar-nav">
-            <%if current_user%>
-              <div class="justify_end">
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "m-1 btn btn-outline-danger" %>
-              </div>
-              </ul>
-            <%else%>
-              <div class="justify_end">
-              <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
-              </div>
-            <%end%>
+      </ul>
+        <%else%>
+          <div class="justify_end">
+            <%=  link_to "Sign up or log-in", new_user_session_path, class:"nav-item" %>
           </div>
-        </div>
+          </li>
       <%end%>
     </nav>
 
