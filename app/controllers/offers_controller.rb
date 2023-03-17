@@ -31,7 +31,6 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-
   end
 
   def create
@@ -42,7 +41,7 @@ class OffersController < ApplicationController
     if @offer.save!
       redirect_to @offer
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
