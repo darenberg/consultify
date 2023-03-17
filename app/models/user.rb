@@ -8,5 +8,5 @@ class User < ApplicationRecord
 
   has_many :teacher_bookings, through: :teacher_offers, source: :bookings
 
-  has_many :student_bookings, foreign_key: :user_id, class_name: "Bookings"
+  has_many :student_bookings, foreign_key: :user_id, class_name: "Booking"
 end
