@@ -2,10 +2,10 @@
 <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
   <h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id), class: "booking-title" %></h3>
   <p><%=@booking.offer.description.capitalize %></p>
-    <p><%=@booking.offer.category.capitalize%></p>
-
-  <%= @booking.start_time%>
-  <%= @booking.end_time%>
+  <p><%=@booking.offer.category.capitalize%></p>
+  <%= @booking.start_time.strftime("%m.%d")%>
+  <%= @booking.start_time.strftime("%H.%M")%>
+  <%= @booking.end_time.strftime("%H.%M")%>
   <%= @booking.status %>
   <% if current_user == @booking.offer.user %>
     <%= simple_form_for [@booking.offer, @booking] do |f| %>
@@ -14,5 +14,6 @@
     <% end %>
   <% end %>
 
-  <p><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}, class: "button-pushable"%></p>
+  <p class="button"><%= button_to "Delete Booking", booking_path(@booking.id), method: :delete, data: {confirm: "Are you sure"}, class: "button-pushable"%></p>
+  <%= link_to "Back", bookings_path%>
 </div>
