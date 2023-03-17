@@ -3,12 +3,13 @@
   <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
     <h2><%= @offer.title.capitalize %></h2>
     <p><%= @offer.description.capitalize %></p>
-    <p><%= @offer.category.capitalize %></p>
-    <p><%= @offer.qualifications.capitalize %></p>
+    <p>CATEGORY - <%= @offer.category.capitalize %></p>
+    <p>QUALIFICATIONS - <%= @offer.qualifications.capitalize %></p>
     <p><%= @offer.price %></p>
      <% if @offer.reviews  %>
+     <p> Reviews: </p>
      <% @offer.reviews.each do |review| %>
-      <p> review: <%= review.content %></p>
+     <p>-<%= review.content.capitalize %>-</p>
     <% end %>
       <% end %>
     <div class="p-1 m-1">
@@ -31,11 +32,10 @@
       <%= f.input :end_time %>
       <%= f.submit %>
     <% end %>
-
   </div>
   <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
-  <%= render "reviews/review_form", offer: @offer, review: @review %>
-
-<%= link_to "Back to all offers", offers_path, class: "back-button" %>
+    <h3>Review</h3>
+    <%= render "reviews/review_form", offer: @offer, review: @review %>
+    <%= link_to "Back to all offers", offers_path, class: "back-button" %>
   </div>
 </div>
