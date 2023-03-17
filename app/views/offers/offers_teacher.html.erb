@@ -9,10 +9,10 @@
   </div>
 
   <div class="container d-flex align-items-center justify-content-between my-3">
-    <div class="p-1 m-1 d-flex ">
+    <div class="p-1 m-1 d-flex flex-wrap">
       <% @offers.each do |offer| %>
         <% if offer.user_id == current_user.id  %>
-          <div class="p-1 m-1 w-100 shadow p-3 mb-5 bg-white rounded">
+          <div class="p-1 m-1 w-100 shadow p-3 mb-5 bg-white rounded teacher-offer-card">
             <h3><%=  link_to offer.title.capitalize, offer_path(offer.id), class: "text-decoration-none"  %></h3>
             <p><%= offer.description.capitalize %></p>
             <p><%= offer.category.capitalize %></p>

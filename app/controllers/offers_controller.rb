@@ -28,7 +28,6 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-
   end
 
   def create
@@ -39,7 +38,7 @@ class OffersController < ApplicationController
     if @offer.save!
       redirect_to @offer
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -63,7 +62,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:category, :title, :description, :qualifications)
+    params.require(:offer).permit(:category, :title, :description, :qualifications, :price)
   end
 
   def set_offer

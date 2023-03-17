@@ -1,8 +1,9 @@
 
 <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded">
   <h3><%=link_to @booking.offer.title.capitalize, offer_booking_path(@booking.offer.id, @booking.id), class: "booking-title" %></h3>
-  <p><%=@booking.offer.description.capitalize %></p>
-  <p><%=@booking.offer.category.capitalize%></p>
+  <p class="description"><%=@booking.offer.description.capitalize %></p>
+  <p>Category - <%=@booking.offer.category.capitalize%></p>
+  <p>Qualifications - <%=@booking.offer.qualifications.capitalize%></p>
   <%= @booking.start_time.strftime("%m.%d")%>
   <%= @booking.start_time.strftime("%H.%M")%>
   <%= @booking.end_time.strftime("%H.%M")%>

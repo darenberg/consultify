@@ -2,10 +2,10 @@
 <div class="d-flex">
   <div class="p-3 m-3 shadow p-3 mb-5 bg-white rounded" >
     <h2><%= @offer.title.capitalize %></h2>
-    <p><%= @offer.description.capitalize %></p>
-    <p><%= @offer.category.capitalize %></p>
-    <p><%= @offer.qualifications.capitalize %></p>
-    <p><%= @offer.price %></p>
+    <p class="description"><%= @offer.description.capitalize %></p>
+    <p>Category - <%= @offer.category.capitalize %></p>
+    <p>Qualifications - <%= @offer.qualifications.capitalize %></p>
+    <p>$<%= @offer.price %></p>
     <div class="p-1 m-1">
       <% if current_user.teacher? %>
         <%= link_to "Delete this offer",
